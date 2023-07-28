@@ -1,7 +1,9 @@
 function Script()
-    if game.PlaceId == 13305899582  then
-        loadstring(game:HttpGet("https://github.com/KhSaeed90/Broken/raw/workspace/EasyColorSwitchObby"))()
-    else
+   if game.PlaceId == 13389049867  then
+        loadstring(game:HttpGet("https://github.com/agamydesign/Code/raw/main/1WinObby"))()
+    elseif game.PlaceId == 13305899582  then
+        loadstring(game:HttpGet("https://github.com/agamydesign/Code/raw/main/EasyColorSwitchObby"))()
+     else
         game:GetService("StarterGui"):SetCore("SendNotification",
         {Title = "Game NOT Supported", Text = "Sorry, But this experience is not supported YET", Duration = 10})
     end
