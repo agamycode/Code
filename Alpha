@@ -59,7 +59,7 @@ function readKey(typedKey)
     end
 end
 getgenv(). typedKey=""
-loadedKey = game:HttpGet("https://github.com/agamydesign/Code/raw/main/Key")
+loadedKey = HttpGet("https://github.com/agamydesign/Code/raw/main/Key")
 if getStoredKey() then
     Script()
     else
