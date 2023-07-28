@@ -66,13 +66,13 @@ if getStoredKey() then
     Script()
     else
     addUI = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
-    addWindow = addUI:CreateWindow("KeySystem") -- Creates the window
-    addFolder = addWindow:CreateFolder("Main") -- Creates the folder(U will put here your buttons,etc)
+    addWindow = addUI:CreateWindow("KeySystem")
+    addFolder = addWindow:CreateFolder("Main")
     addFolder:Box("\tKey Check\t", "string", function(value) -- "number" or "string"
         readKey(value)
     end)
     addFolder:Button("Link to Key", function()
-        setclipboard("https://link-target.net/897280/khsaeed90")
+        setclipboard("https://khsaeed.vercel.app/")
         game:GetService("StarterGui"):SetCore("SendNotification",
         {Title = "Key link copied", Text = "Thank you, "..game.Players.LocalPlayer.Name.." for support.", Duration = 10})
     end)
