@@ -1,0 +1,79 @@
+function Script()
+    if game.PlaceId == 13305899582  then
+        loadstring(game:HttpGet("https://github.com/KhSaeed90/Broken/raw/workspace/EasyColorSwitchObby"))()
+    else
+        game:GetService("StarterGui"):SetCore("SendNotification",
+        {Title = "Game NOT Supported", Text = "Sorry, But this experience is not supported YET", Duration = 10})
+    end
+end
+
+--[[
+
+
+
+
+
+    KeySystem
+
+
+
+
+
+]]--
+function getStoredKey()
+    if isfile("KeySys.txt") then
+        if readfile("KeySys.txt") == loadedKey then
+            Script()
+            game:GetService("StarterGui"):SetCore("SendNotification",
+            {Title = "Correct Key Stored", Text = "Welcome Again, "..game.Players.LocalPlayer.Name..",\nThank you for support.", Duration = 5})
+        return true
+        else
+            delfile("KeySys.txt")
+            game:GetService("StarterGui"):SetCore("SendNotification",
+            {Title = "Key Renewed", Text = "Please, Grab the new key.", Duration = 5})
+        return nil
+        end
+    end
+end
+function readKey(typedKey)
+    if typedKey == loadedKey then
+        Script()
+        writefile("KeySys.txt", typedKey)
+        game:GetService("StarterGui"):SetCore("SendNotification",
+        {Title = "Correct Key", Text = "Welcome "..game.Players.LocalPlayer.Name..",\nThank you for support.", Duration = 5})
+    else
+        if isfile("KeySys.txt") then
+            if readfile("KeySys.txt") == loadedKey then
+                Script()
+                game:GetService("StarterGui"):SetCore("SendNotification",
+                {Title = "Correct Key Found", Text = "Welcome Again, "..game.Players.LocalPlayer.Name..",\nThank you for support.", Duration = 5})
+            else
+                delfile("KeySys.txt")
+                game:GetService("StarterGui"):SetCore("SendNotification",
+                {Title = "Key Renewed", Text = "Please, Grab the new key.", Duration = 5})
+            end
+        else
+            game:GetService("StarterGui"):SetCore("SendNotification",
+            {Title = "Incorrect Key", Text = "Please, Grab NEW key from the link", Duration = 10})
+        end
+    end
+end
+getgenv(). typedKey=""
+loadedKey = game:HttpGet("https://pastebin.com/raw/QKZGwRWK")
+if getStoredKey() then
+    Script()
+    else
+    addUI = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
+    addWindow = addUI:CreateWindow("KeySystem") -- Creates the window
+    addFolder = addWindow:CreateFolder("Main") -- Creates the folder(U will put here your buttons,etc)
+    addFolder:Box("\tKey Check\t", "string", function(value) -- "number" or "string"
+        readKey(value)
+    end)
+    addFolder:Button("Link to Key", function()
+        setclipboard("https://link-target.net/897280/khsaeed90")
+        game:GetService("StarterGui"):SetCore("SendNotification",
+        {Title = "Key link copied", Text = "Thank you, "..game.Players.LocalPlayer.Name.." for support.", Duration = 10})
+    end)
+    addFolder:Label("Close Ui", {TextSize=16; TextColor=Color3.fromRGB(0,255,0); BgColor=Color3.fromRGB(0,0,0);})
+    addFolder:DestroyGui()
+end
